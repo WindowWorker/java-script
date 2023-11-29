@@ -4,7 +4,7 @@ globalThis.ecmascript=`<script>void `+
 function ModeJS(){
 async function ECMAScript(el){
 
-  if(!(querySelector('main'))){
+  if(!(document.querySelector('main'))){
     let mydoc=await (await fetch(window.location.href+'?noscript')).text();
     let main =document.createElement('main');
     main.innerHTML=mydoc;

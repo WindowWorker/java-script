@@ -123,14 +123,23 @@ await new Promise((resolve, reject) => {setTimeout(resolve,100);})
   let backup = element.cloneNode(true);
   let backupId = new Date().getTime();
   backup.setAttribute('backup',backupId);
+  if(document.head){
   document.head.insertBefore(backup,document.head.firstElementChild);
+  }else{
+  document.firstElementChild.appendChild(backup);
+  }
   backup.promise = new Promise((resolve, reject) => {
     globalThis.backupElements[''+backupId]={"promise":backup.promise,"resolve":resolve};
 });
   backup.onerror = function(e){globalThis.backupElements[backupId].resolve();}
   backup.onload = function(e){globalThis.backupElements[backupId].resolve();}
   backup.style.visibility="hidden";
+  if(document.head){
   document.head.insertBefore(backup,document.head.firstElementChild);
+  }else{
+  document.c
+  document.firstElementChild.appendChild(backup);
+  }
 const promise1 = new Promise((resolve, reject) => {setTimeout(resolve,1000);});
 
   await Promise.race([backup.promise,promise1]) ;

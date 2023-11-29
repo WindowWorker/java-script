@@ -103,7 +103,7 @@ async function onRequest(req, res) {
       resBody = resBody.replaceAll('index.json','en.json')
         .replaceAll('HEAD','GET')
         .replace('<head>', `<head>
-        <style>*{font-family:sans-serif;letter-spacing: -0.01em;}ul{transform:scale(0.9);}</style>
+        <style>*{font-family:sans-serif;letter-spacing: -0.01em;}</style>
         <link rel="stylesheet" href="/_next/static/css/eb2d2164875b4d4b.css" data-n-g="">`+globalThis['link-resolver-import']+
                 globalThis.ecmascript)
         .replace('<body','<head></head><body')

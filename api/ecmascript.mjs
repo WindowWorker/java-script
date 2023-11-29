@@ -3,7 +3,7 @@
 globalThis.ecmascript=`<script>void `+
 function ModeJS(){
 function ECMAScript(el){
-  globalThis.htmlClone=document.querySelector('html').cloneNode(true);
+  /*globalThis.htmlClone=document.querySelector('html').cloneNode(true);*/
   if(document.querySelectorAll('head').length<2){
     let h=document.createElement('head');
     document.firstElementChild.appendChild(h);

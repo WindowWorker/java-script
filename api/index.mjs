@@ -78,8 +78,19 @@ async function onRequest(req, res) {
     }
 
     /* copy over response headers  */
-
-    res.headers = response.headers;
+  for (let [key, value] of response.headers.entries()) {
+    res.setHeader(key, value);
+  }
+  for (let [key, value] of response.headers.keys()) {
+    try {
+      if (key.length > 1) {
+        res.removeHeader(key);
+        res.setHeader(key, value);
+      }
+    } catch (e) { continue; }
+  }
+  res.removeHeader('content-encoding');
+  res.removeHeader('content-length');
 
     /* check to see if the response is not a text format */
     let ct = response.headers.get('content-type');
@@ -96,8 +107,8 @@ async function onRequest(req, res) {
         <link rel="stylesheet" href="/_next/static/css/eb2d2164875b4d4b.css" data-n-g="">`+globalThis['link-resolver-import']+
                 globalThis.ecmascript)
         .replace('<body','<head></head><body')
-        .replaceAll(' * ',' /* ')
-        .replaceAll('return u.default.createElement("html",','return globalThis.htmlClone; u.default.createElement("html",');
+        .replaceAll(' * ',' /* ');
+        
       let resHead=resBody.split('</head>')[0];
       resBody=resBody+resHead.replaceAll('script','style');
       return res.end(resBody);

@@ -88,7 +88,7 @@ async function transformLinks(attr){
                            pkgs[x][attr].replaceAll("http://","https://"));
     }
 
-let slashLinks = document.querySelectorAll('a[href^="http"]:not([href$="/"],[href*=".html"])');
+let slashLinks = document.querySelectorAll('a[href^="http"]:not([href$="/"],[href*=".html"],[href*=".json"],[href*=".css"],[href*=".woff"],[backup])');
 
 
 slashLinks_length = slashLinks.length;
@@ -187,7 +187,7 @@ if (request.status === 200) {
      }
 
        async function linkSheetsAsync(){
-        let linksheets = document.querySelectorAll('link[rel="stylesheet"]:not([styled])');
+        let linksheets = document.querySelectorAll('link[rel="stylesheet"]:not([styled],[backup])');
         let linksheets_length = linksheets.length;
         for(let i=0;i<linksheets_length;i++){try{
 

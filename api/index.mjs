@@ -36,7 +36,7 @@ async function onRequest(req, res) {
   for (const property in req.headers) {
     try {
       if (!skipHeaders.includes(property.toLowerCase())) {
-        reqHeaders[property] = req.headers[property].replace(localhost,hostTarget);
+        reqHeaders[property.toLowerCase()] = req.headers[property].replace(localhost,hostTarget);
       }
 } catch (e) { continue; }
   }

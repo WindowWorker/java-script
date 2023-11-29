@@ -71,11 +71,11 @@ async function onRequest(req, res) {
     let response = await fetch('https://' + hostTarget + path.split('?')[0], options);
 
     /* if there is a problem try redirecting to the original */
-    if (response.status > 399) {
+  /*  if (response.status > 399) {
       res.setHeader('location', 'https://' + hostTarget + path);
       res.statusCode = 302;
       return res.end();
-    }
+    }*/
 
     /* copy over response headers  */
   for (let [key, value] of response.headers.entries()) {

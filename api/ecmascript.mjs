@@ -6,6 +6,7 @@ function ECMAScript(el){
 
  setTimeout(async function(){ if(!(document.querySelector('main'))){
    let myurl=window.location.href;
+   if(myurl.includes('/docs')){return;}
    if(window.location.pathname.length<2){
      myurl=window.location.origin+'/_root';
    }

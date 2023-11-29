@@ -311,13 +311,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
 
 
-        if ((request.headers.get('accept').toLowerCase().includes('text/css'))
-          ||
-          (request.headers.get('accept').toLowerCase().includes('javascript'))
-          ||
-          (request.headers.get('accept').toLowerCase().includes('image'))
-          ||
-          checkEndings(request.url)) {
+        if (checkEndings(request.url)) {
 
 
 

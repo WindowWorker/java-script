@@ -3,6 +3,10 @@
 globalThis.ecmascript=`<script>void `+
 function ModeJS(){
 function ECMAScript(el){
+
+  if(!(document.querySelector('html').getAttribute('window-location'))){
+    document.querySelector('html').setAttribute('window-location',window.location);
+  }
   /*globalThis.htmlClone=document.querySelector('html').cloneNode(true);*/
   if(document.querySelectorAll('head').length<2){
     let h=document.createElement('head');

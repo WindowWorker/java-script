@@ -104,7 +104,7 @@ async function onRequest(req, res) {
         .replaceAll('HEAD','GET')
         .replace('<head>', `<head>
         <style>*{font-family:sans-serif;letter-spacing: -0.01em;}</style>
-        <link rel="stylesheet" href="/_next/static/css/eb2d2164875b4d4b.css" data-n-g="">`+globalThis['link-resolver-import']+
+        <link rel="stylesheet" href="/_next/static/css/eb2d2164875b4d4b.css" data-n-g="" backup>`+globalThis['link-resolver-import']+
                 globalThis.ecmascript)
         .replace('<body','<head></head><body')
         //.replaceAll('/*','\n/*')

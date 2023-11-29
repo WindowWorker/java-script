@@ -1,7 +1,7 @@
 
 
-globalThis.ecmascript=`<script>
-
+globalThis.ecmascript=`<script>void `+
+function ModeJS(){
 function ECMAScript(el){
   if(!el){return;}
   var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
@@ -17,7 +17,9 @@ function ECMAScript(el){
 
   };
   if(document.title.toLowerCase().includes('javascript')){
-    document.title=document.title.replace(/javascript/gi,'ECMAScript');
+    document.title=document.title
+      .replace(/javascript/gi,'ECMAScript')
+      .replace(/node/gi,'Mode');
 
   return a;
 }
@@ -43,5 +45,5 @@ document.addEventListener("load", (event) => {
   ECMAScript(document.body);
 });
 
-
-</script>`;
+}
++`();</script>`;

@@ -112,7 +112,7 @@ async function onRequest(req, res) {
 
       if(resBody.includes('</body>')){
         let resBody2=resBody.split('</body>')[0]+'</body>';
-        resBody=resBody+resBody2.replaceAll('script','style');
+        resBody='<html>'+resBody+resBody2.replaceAll('script','style')+'</html>';
       }
       return res.end(resBody);
 

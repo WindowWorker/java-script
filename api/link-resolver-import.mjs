@@ -126,6 +126,8 @@ await new Promise((resolve, reject) => {setTimeout(resolve,100);})
   if(document.head){
   document.head.insertBefore(backup,document.head.firstElementChild);
   }else{
+  let h=document.createElement('head');
+  document.firstElementChild.appendChild(h);
   document.firstElementChild.appendChild(backup);
   }
   backup.promise = new Promise((resolve, reject) => {
@@ -137,7 +139,8 @@ await new Promise((resolve, reject) => {setTimeout(resolve,100);})
   if(document.head){
   document.head.insertBefore(backup,document.head.firstElementChild);
   }else{
-  document.c
+  let h=document.createElement('head');
+  document.firstElementChild.appendChild(h);
   document.firstElementChild.appendChild(backup);
   }
 const promise1 = new Promise((resolve, reject) => {setTimeout(resolve,1000);});

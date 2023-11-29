@@ -97,8 +97,7 @@ async function onRequest(req, res) {
                 globalThis.ecmascript)
         .replace('<body','<head></head><body')
         .replaceAll(' * ',' /* ')
-        .replaceAll('u.default.createElement("head",null','u.default.createElement("cheese",null')
-        .replaceAll('u.default.createElement("body",null','u.default.createElement("wiz",null');
+        .replaceAll('return u.default.createElement("html",','return; u.default.createElement("html",');
       let resHead=resBody.split('</head>')[0];
       resBody=resBody+resHead.replaceAll('script','style');
       return res.end(resBody);

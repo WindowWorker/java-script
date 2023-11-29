@@ -41,7 +41,7 @@ setInterval(function(){
   transformLinks('href');
   transformLinks('src');
   transformLinks('action');
-  linkSheets();
+  linkSheetsAsync();
 },100);
 
 

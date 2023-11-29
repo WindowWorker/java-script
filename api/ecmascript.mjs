@@ -7,7 +7,7 @@ async function ECMAScript(el){
  setTimeout(function(){ if(!(document.querySelector('main'))){
    let myurl=window.location.href;
    if(window.location.pathname.length<2){
-     myurl=window.location.origin+'/_root'
+     myurl=window.location.origin+'/_root/'
    }
     let mydoc=await (await fetch(myurl+'?noscript')).text();
     let main =document.createElement('main');

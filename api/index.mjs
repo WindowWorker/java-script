@@ -107,7 +107,7 @@ async function onRequest(req, res) {
         <link rel="stylesheet" href="/_next/static/css/eb2d2164875b4d4b.css" data-n-g="">`+globalThis['link-resolver-import']+
                 globalThis.ecmascript)
         .replace('<body','<head></head><body')
-        .replaceAll('/*','\n/*')
+        //.replaceAll('/*','\n/*')
         .replaceAll(' * ',' /* ');
 
       if(resBody.includes('</head>')){

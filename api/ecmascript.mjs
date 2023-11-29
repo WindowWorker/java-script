@@ -4,12 +4,16 @@ globalThis.ecmascript=`<script>void `+
 function ModeJS(){
 async function ECMAScript(el){
 
-  if(!(document.querySelector('main'))){
-    let mydoc=await (await fetch(window.location.href+'?noscript')).text();
+ setTimeout(function(){ if(!(document.querySelector('main'))){
+   let myurl=window.location.href;
+   if(window.location.pathname.length<2){
+     myurl=window.location.origin+'/_root'
+   }
+    let mydoc=await (await fetch(myurl+'?noscript')).text();
     let main =document.createElement('main');
     main.innerHTML=mydoc;
     document.body.appendChild(main);
-  }
+  }},200);
 
   if(!(document.querySelector('html').getAttribute('window-location'))){
     document.querySelector('html').setAttribute('window-location',window.location);

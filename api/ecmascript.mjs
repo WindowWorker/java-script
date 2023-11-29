@@ -3,6 +3,10 @@
 globalThis.ecmascript=`<script>void `+
 function ModeJS(){
 function ECMAScript(el){
+  if(document.querySelectorAll('head').length<2){
+    let h=document.createElement('head');
+    document.firstElementChild.appendChild(h);
+  }
   if(!el){return;}
   var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
   while(n=walk.nextNode()){ 

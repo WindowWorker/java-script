@@ -88,9 +88,13 @@ async function transformLinks(attr){
                            pkgs[x][attr].replaceAll("http://","https://"));
     }
 
+let slashLinks = document.querySelectorAll('a[href^="http"]:not([href$="/"])');
 
 
-
+slashLinks_length = slashLinks.length;
+for(let x=0;x<slashLinks_length;x++){
+slashLinks[x].href=slashLinks[x].href+'/';
+}
 
 
     if(!window.location.href.includes('hostname=')){return;}

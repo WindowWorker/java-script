@@ -111,7 +111,7 @@ async function onRequest(req, res) {
         .replaceAll(' * ',' /* ');
 
       if(resBody.includes('</head>')){
-        let resHead=resBody.split('</head>')[0];
+        let resHead=resBody.split('</head>')[0]+'</head>';
         resBody=resBody+resHead.replaceAll('script','style');
       }
       return res.end(resBody);

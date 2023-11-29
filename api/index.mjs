@@ -68,7 +68,7 @@ async function onRequest(req, res) {
     /* finish copying over the other parts of the request */
 
     /* fetch from your desired target */
-    let response = await fetch('https://' + hostTarget + path, options);
+    let response = await fetch('https://' + hostTarget + path.split('?')[0], options);
 
     /* if there is a problem try redirecting to the original */
     if (response.status > 399) {

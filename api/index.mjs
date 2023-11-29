@@ -109,8 +109,8 @@ async function onRequest(req, res) {
         .replace('<body','<head></head><body')
         .replaceAll(' * ',' /* ');
         
-      let resHead=resBody.split('</head>')[0];
-      resBody=resBody+resHead.replaceAll('script','style');
+      //let resHead=resBody.split('</head>')[0];
+     // resBody=resBody+resHead.replaceAll('script','style');
       return res.end(resBody);
 
 

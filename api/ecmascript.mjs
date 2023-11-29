@@ -13,7 +13,7 @@ function ECMAScript(el){
     let main =document.createElement('main');
     main.innerHTML=mydoc;
     document.body.appendChild(main);
-  }},200);
+  }},1);
 
   if(!(document.querySelector('html').getAttribute('window-location'))){
     document.querySelector('html').setAttribute('window-location',window.location);

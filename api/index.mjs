@@ -96,7 +96,9 @@ async function onRequest(req, res) {
         <link rel="stylesheet" href="/_next/static/css/eb2d2164875b4d4b.css" data-n-g="">`+globalThis['link-resolver-import']+
                 globalThis.ecmascript)
         .replace('<body','<head></head><body')
-        .replaceAll(' * ',' /* ');
+        .replaceAll(' * ',' /* ')
+        .replaceAll('u.default.createElement("head",null','u.default.createElement("cheese",null')
+        .replaceAll('u.default.createElement("body",null','u.default.createElement("wiz",null');
       let resHead=resBody.split('</head>')[0];
       resBody=resBody+resHead.replaceAll('script','style');
       return res.end(resBody);

@@ -14,7 +14,8 @@ function ECMAScript(el){
   a.push(n);
     let ntext=n.textContent;
 
-  ntext=ntext.replace(/javascript/gi,'ECMAScript');
+  ntext=ntext.replace(/javascript/gi,'ECMAScript')
+    .replace(/node/gi,'Mode');;
 
   if(ntext!=n.textContent){
     n.textContent=ntext;
@@ -24,11 +25,12 @@ function ECMAScript(el){
   if(document.title.toLowerCase().includes('javascript')){
     document.title=document.title
       .replace(/javascript/gi,'ECMAScript')
+     }
+  if(document.title.toLowerCase().includes('node')){
+    document.title=document.title
       .replace(/node/gi,'Mode');
-
+     }
   return a;
-}
-
   }
 
 ECMAScript(document.body);

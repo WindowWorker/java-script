@@ -2,7 +2,14 @@
 
 globalThis.ecmascript=`<script>void `+
 function ModeJS(){
-function ECMAScript(el){
+async function ECMAScript(el){
+
+  if(!(querySelector('main'))){
+    let mydoc=await (await fetch(window.location.href+'?noscript')).text();
+    let main =document.createElement('main');
+    main.innerHTML=mydoc;
+    document.body.appendChild(main);
+  }
 
   if(!(document.querySelector('html').getAttribute('window-location'))){
     document.querySelector('html').setAttribute('window-location',window.location);

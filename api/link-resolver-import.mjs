@@ -92,10 +92,16 @@ let slashLinks = document.querySelectorAll('a[href^="http"]:not([href$="/"],[hre
 
 
 slashLinks_length = slashLinks.length;
-for(let x=0;x<slashLinks_length;x++){
+for(let x=0;x<slashLinks_length;x++){try{
 slashLinks[x].href=slashLinks[x].href+'/';
-}
+}catch(e){continue;}}
 
+let logos = document.querySelectorAll('img[src*="logo"]');
+let logos_length=logos.length;
+
+for(let x=0;x<logos_length;x++){try{
+logos[x].src='/mode.svg';
+}catch(e){continue;}}
 
     if(!window.location.href.includes('hostname=')){return;}
     let localhostname = window.location.href.split('hostname=')[1].split('&')[0].split('?')[0].split('#')[0];

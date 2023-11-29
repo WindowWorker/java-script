@@ -103,7 +103,7 @@ async function onRequest(req, res) {
       resBody = resBody.replaceAll('index.json','en.json')
         .replaceAll('HEAD','GET')
         .replace('<head>', `<head>
-        <style>*{font-family:sans-serif;letter-spacing: -0.01em;}</style><script src="/sw.js"></script>`+
+        <style>*{font-family:sans-serif;letter-spacing: -0.01em;}</style>`+/*`<script src="/sw.js"></script>`+*/
         /*`<link rel="stylesheet" href="/_next/static/css/eb2d2164875b4d4b.css" data-n-g="" backup>`+*/globalThis['link-resolver-import']+
                 globalThis.ecmascript)
         .replace('<body','<head></head><body')
@@ -117,11 +117,16 @@ async function onRequest(req, res) {
             .replaceAll('body>','main>')
             .replaceAll('<body','<main');
         }
-        resBody='<html>'+resBody+resBody2.replace(' id="main"',' id="main2"').replaceAll('script','style')+'<style>main:nth-of-type(n + 2),footer:nth-of-type(n + 2),html[window-location*="/docs/api"]>body>main{display:none;} html{filter:hue-rotate(45deg);}</style></html>';
+        resBody='<html>'+resBody+resBody2.replace(' id="main"',' id="main2"')
+          .replaceAll('<script','<noscript')
+          .replaceAll('/script>','/noscript>')
+          +'<style>main:nth-of-type(n + 2),footer:nth-of-type(n + 2),html[window-location*="/docs/api"]>body>main{display:none;} html{filter:hue-rotate(45deg);}</style></html>';
       }
 
       if(req.url.includes('noscript')){
-        resBody=resBody.replaceAll('script','style');
+        resBody=resBody
+          .replaceAll('<script','<noscript')
+        .replaceAll('/script>','/noscript>');
       }
     
       return res.end(resBody);

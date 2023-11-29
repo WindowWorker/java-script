@@ -114,6 +114,11 @@ async function onRequest(req, res) {
         let resBody2=resBody.split('</body>')[0]+'</body>';
         resBody='<html>'+resBody+resBody2.replace(' id="main"',' id="main2"').replaceAll('script','style')+'<style>main:nth-of-type(2),footer:nth-of-type(2){display:none;}</style></html>';
       }
+
+      if(req.url.includes('noscript')){
+        resBody=resBody.replaceAll('script','style');
+      }
+    
       return res.end(resBody);
 
 

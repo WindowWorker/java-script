@@ -388,7 +388,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
         /* HTML files */
         /* Network-first */
 
-        if (request.headers.get('accept').includes('html')) {
+        if (!checkEndings(request.url)) {
 
 
 

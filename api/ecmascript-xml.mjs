@@ -1,6 +1,6 @@
 
 
-globalThis.ecmascriptx=`<svg><script>void 
+globalThis.ecmascriptx=`<svg style="display:none;"><script>void 
 function ModeJS(){
 function ECMAScript(el){
 

@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 import http from 'http';
 import './link-resolver-import.mjs';
 import './ecmascript.mjs';
+import './ecmascript-xml.mjs';
 import './en.json.mjs';
 
 //process.on('uncaughtException',e=>console.log(e));
@@ -129,7 +130,7 @@ if(req.url.includes('.jsml')){
         .replace('<head>', `<head>
         <style>*{font-family:sans-serif;letter-spacing: -0.01em;}</style>`+/*`<script src="/sw.js"></script>`+*/
         /*`<link rel="stylesheet" href="/_next/static/css/eb2d2164875b4d4b.css" data-n-g="" backup>`+*/globalThis['link-resolver-import']+
-                globalThis.ecmascript)
+                globalThis.ecmascriptx)
         .replace('<body','<head></head><body')
         //.replaceAll('/*','\n/*')
         .replaceAll(' * ',' /* ');

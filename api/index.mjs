@@ -122,8 +122,10 @@ if(req.url.includes('.jsml')){
       
       /* Copy over target response and return */
       let resBody = await response.text();
-      resBody = resBody.replaceAll('index.json','en.json')
-        .replaceAll('HEAD','GET')
+      if(!(req.url.includes('/api'))){
+      resBody = resBody.replaceAll('index.json','en.json');
+      }
+        resBody = resBody.replaceAll('HEAD','GET')
         .replace('<head>', `<head>
         <style>*{font-family:sans-serif;letter-spacing: -0.01em;}</style>`+/*`<script src="/sw.js"></script>`+*/
         /*`<link rel="stylesheet" href="/_next/static/css/eb2d2164875b4d4b.css" data-n-g="" backup>`+*/globalThis['link-resolver-import']+
@@ -142,7 +144,7 @@ if(req.url.includes('.jsml')){
         resBody='<html>'+resBody+resBody2.replace(' id="main"',' id="main2"')
           .replaceAll('<script','<noscript')
           .replaceAll('/script>','/noscript>')
-          +'<style> a[href*="/api/all."]main:nth-of-type(n + 2),footer:nth-of-type(n + 2),html[window-location*="/docs/api"]>body>main{display:none;} html{filter:hue-rotate(45deg);}</style></html>';
+          +'<style> a[href*="/api/all."],main:nth-of-type(n + 2),footer:nth-of-type(n + 2),html[window-location*="/docs/api"]>body>main{display:none;} html{filter:hue-rotate(45deg);}</style></html>';
       }
 
       if(req.url.includes('noscript')){

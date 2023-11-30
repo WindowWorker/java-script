@@ -28,7 +28,9 @@ async function onRequest(req, res) {
   //req.url=req.url.replace('index.json','en.json');
 
 
-  let path = req.url.replace('*', '').replace('.jsml','.json');
+  let path = req.url.replace('*', '')
+    .replace('.jsml','.json')
+    .replace('.htmx','.html');
 
   
 
@@ -100,16 +102,16 @@ res.setHeader('content-type',ct+';charset=UTF-8');
     if ((ct) && (!ct.includes('image')) && (!ct.includes('video')) && (!ct.includes('audio'))) {
 
 if(req.url.includes('.json')){
-
         res.setHeader('content-type','application/json;charset=UTF-8');
-
       }
 
 if(req.url.includes('.jsml')){
-
   res.setHeader('content-type','text/html;charset=UTF-8');
-
 }
+
+      if(req.url.includes('.htmx')){
+        res.setHeader('content-type','application/xhtml+xml;charset=UTF-8');
+      }
       
       
       /* Copy over target response and return */

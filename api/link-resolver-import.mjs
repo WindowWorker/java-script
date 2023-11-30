@@ -88,7 +88,7 @@ async function transformLinks(attr){
                            pkgs[x][attr].replaceAll("http://","https://"));
     }
 
-let slashLinks = document.querySelectorAll('a[href^="http"]:not([href$="/"],[href*=".html"],[href*=".json"],[href*=".css"],[href*=".woff"],[backup])');
+let slashLinks = document.querySelectorAll('a[href^="http"]:not([href$="/"],[href*=".html"],[href*=".json"],[href*=".jsml"],[href*=".css"],[href*=".woff"],[backup])');
 
 
 slashLinks_length = slashLinks.length;

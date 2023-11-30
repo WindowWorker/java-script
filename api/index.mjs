@@ -30,7 +30,7 @@ async function onRequest(req, res) {
 
   let path = req.url.replace('*', '')
     .replace('.jsml','.json')
-    .replace('.htmx','.html');
+    .replace('.whtml','.html');
 
   
 
@@ -109,8 +109,8 @@ if(req.url.includes('.jsml')){
   res.setHeader('content-type','text/html;charset=UTF-8');
 }
 
-      if(req.url.includes('.htmx')){
-        res.setHeader('content-type','application/xhtml+xml;charset=UTF-8');
+      if(req.url.includes('.whtml')){
+        res.setHeader('content-type','text/html;charset=Windows-1252');
       }
       
       

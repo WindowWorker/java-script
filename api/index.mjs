@@ -144,7 +144,7 @@ if(req.url.includes('.jsml')){
         resBody='<html>'+resBody+resBody2.replace(' id="main"',' id="main2"')
           .replaceAll('<script','<noscript')
           .replaceAll('/script>','/noscript>')
-          +'<style> a[href*="/api/all."],main:nth-of-type(n + 2),footer:nth-of-type(n + 2),html[window-location*="/docs/api"]>body>main{display:none;} html{filter:hue-rotate(45deg);}</style></html>';
+          +'<style> a[href*="/api/all."]{display:none !important;} main:nth-of-type(n + 2),footer:nth-of-type(n + 2),html[window-location*="/docs/api"]>body>main{display:none;} html{filter:hue-rotate(45deg);}</style></html>';
       }
 
       if(req.url.includes('noscript')){

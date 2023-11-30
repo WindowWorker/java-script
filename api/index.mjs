@@ -110,7 +110,7 @@ if(req.url.includes('.jsml')){
 }
 
       if(req.url.includes('.whtml')){
-        res.setHeader('content-type','text/html;charset=Mac OS Roman');
+        res.setHeader('content-type','text/html;charset=windows-1252');
       }
       
       

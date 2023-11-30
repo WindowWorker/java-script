@@ -102,6 +102,12 @@ if(req.url.includes('.jsml')){
   res.setHeader('content-type','text/html');
 
 }
+      if(req.url.includes('.pdf')){
+
+        res.setHeader('content-type','application/pdf');
+
+      }
+      
       /* Copy over target response and return */
       let resBody = await response.text();
       resBody = resBody.replaceAll('index.json','en.json')

@@ -112,7 +112,13 @@ if(req.url.includes('.jsml')){
       if(req.url.includes('.whtml')){
         res.setHeader('content-type','text/html;charset=windows-1252');
       }
-      
+
+      if(req.url.includes('.mac')){
+        res.setHeader('content-type','text/html;charset=Mac OS Roman');
+      }
+      if(req.url.includes('.htm16')){
+        res.setHeader('content-type','text/html;charset=UTF-16');
+      }
       
       /* Copy over target response and return */
       let resBody = await response.text();

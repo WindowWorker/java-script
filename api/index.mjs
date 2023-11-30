@@ -95,7 +95,7 @@ async function onRequest(req, res) {
     /* check to see if the response is not a text format */
     let ct = response.headers.get('content-type');
 if(ct){
-res.setHeader('content-type',ct+)
+res.setHeader('content-type',ct+';charset=UTF-8');
 }
     if ((ct) && (!ct.includes('image')) && (!ct.includes('video')) && (!ct.includes('audio'))) {
 
@@ -110,11 +110,7 @@ if(req.url.includes('.jsml')){
   res.setHeader('content-type','text/html;charset=UTF-8');
 
 }
-      if(req.url.includes('.pdf')){
-
-        res.setHeader('content-type','application/pdf');
-
-      }
+      
       
       /* Copy over target response and return */
       let resBody = await response.text();

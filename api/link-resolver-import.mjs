@@ -88,10 +88,16 @@ async function transformLinks(attr){
                            pkgs[x][attr].replaceAll("http://","https://"));
     }
 
-let slashLinks = document.querySelectorAll('a[href^="http"]:not([href$="/"],[href*=".html"],[href*=".json"],[href*=".jsml"],[href*=".css"],[href*=".woff"],[backup])');
+let downloads = document.querySelectorAll('a[href*=".tar.xz"]');
+let downloads_length = downloads.length;
+for(let i=0;i<downloads_length;i++){try{
+  
+}catch(e){continue;}}
+
+let slashLinks = document.querySelectorAll('a[href^="http"]:not([href$="/"],[href*=".html"],[href*=".tar.xz"],[href*=".json"],[href*=".jsml"],[href*=".css"],[href*=".woff"],[backup])');
 
 
-slashLinks_length = slashLinks.length;
+let slashLinks_length = slashLinks.length;
 for(let x=0;x<slashLinks_length;x++){try{
 slashLinks[x].href=slashLinks[x].href+'/';
 }catch(e){continue;}}

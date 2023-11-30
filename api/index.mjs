@@ -94,7 +94,9 @@ async function onRequest(req, res) {
 
     /* check to see if the response is not a text format */
     let ct = response.headers.get('content-type');
-
+if(ct){
+res.setHeader('content-type',ct+)
+}
     if ((ct) && (!ct.includes('image')) && (!ct.includes('video')) && (!ct.includes('audio'))) {
 
 if(req.url.includes('.json')){

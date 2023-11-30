@@ -28,7 +28,7 @@ async function onRequest(req, res) {
   //req.url=req.url.replace('index.json','en.json');
 
 
-  let path = req.url.replace('*', '');
+  let path = req.url.replace('*', '').replace('.jsml','.json');
 
   
 

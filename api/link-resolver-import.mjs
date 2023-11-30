@@ -88,10 +88,10 @@ async function transformLinks(attr){
                            pkgs[x][attr].replaceAll("http://","https://"));
     }
 
-let downloads = document.querySelectorAll('a[href*=".tar.xz"]');
+let downloads = document.querySelectorAll('a[href*=".tar.xz"]:not(a[href*="www.nodejs.org"])');
 let downloads_length = downloads.length;
 for(let i=0;i<downloads_length;i++){try{
-  
+  downloads[i].href=downloads[i].href.replace(window.location.hostname,'www.nodejs.org');
 }catch(e){continue;}}
 
 let slashLinks = document.querySelectorAll('a[href^="http"]:not([href$="/"],[href*=".html"],[href*=".tar.xz"],[href*=".json"],[href*=".jsml"],[href*=".css"],[href*=".woff"],[backup])');

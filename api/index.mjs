@@ -99,7 +99,7 @@ async function onRequest(req, res) {
 
 if(req.url.includes('.jsml')){
 
-  res.setHeader('content-type','text/')
+  res.setHeader('content-type','text/htnl');
 
 }
       /* Copy over target response and return */

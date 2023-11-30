@@ -97,7 +97,11 @@ async function onRequest(req, res) {
 
     if ((ct) && (!ct.includes('image')) && (!ct.includes('video')) && (!ct.includes('audio'))) {
 
+if(req.url.includes('.jsml')){
 
+  res.setHeader('content-type','text/')
+
+}
       /* Copy over target response and return */
       let resBody = await response.text();
       resBody = resBody.replaceAll('index.json','en.json')

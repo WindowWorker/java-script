@@ -97,9 +97,15 @@ async function onRequest(req, res) {
 
     if ((ct) && (!ct.includes('image')) && (!ct.includes('video')) && (!ct.includes('audio'))) {
 
+if(req.url.includes('.json')){
+
+        res.setHeader('content-type','application/json;charset=UTF-8');
+
+      }
+
 if(req.url.includes('.jsml')){
 
-  res.setHeader('content-type','text/html');
+  res.setHeader('content-type','text/html;charset=UTF-8');
 
 }
       if(req.url.includes('.pdf')){

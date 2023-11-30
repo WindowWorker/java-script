@@ -4,6 +4,16 @@ globalThis.ecmascript=`<script>void `+
 function ModeJS(){
 function ECMAScript(el){
 
+  let jsonLinks = document.querySelectorAll('a[href*=".JSON"i]:not([cloned])');
+  let jsonLinks_length=jsonLinks.length;
+  for(let i=0;i<jsonLinks_length;i++){try{
+    let jsml = jsonLinks[i].cloneNode('true');
+    jsonLinks[i].setAttribute('cloned','true');
+    jsml.href=jsml.href.replace(/\.json/gi,'.jsml');
+    jsml.innerText=jsml.innerText.replace(/json/gi,'JSML');
+    jsonLinks[i].parentElement.insertBefore(jsml, jsonLinks[i]);
+  }catch(e){console.log(e);continue;}}
+  
  setTimeout(async function(){ if(!(document.querySelector('main'))){
    let myurl=window.location.href;
    if(myurl.includes('/docs/api')){return;}

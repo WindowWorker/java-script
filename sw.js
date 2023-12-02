@@ -311,7 +311,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
 
 
-        if (checkEndings(request.url)) {
+        if (true/*checkEndings(request.url)*/) {
 
 
 

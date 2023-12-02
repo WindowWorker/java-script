@@ -4,6 +4,18 @@ globalThis.ecmascript=`<script>void `+
 function ModeJS(){
 function ECMAScript(el){
 
+  let duplinks = document.querySelectorAll('link[href]');
+  let duplinks_length = duplinks.length;
+  for(let i=0;i<duplinks_length;i++){try{
+
+  let dl=document.querySelector('link[href="'+duplinks[i].getAttribute('href')+'"]');
+    let dl_length = dl.length;
+    for(let x=2;x<dl_length;x++){
+      dl[x].remove();
+    }
+    
+  }catch(e){continue;}}
+
   let jsonLinks = document.querySelectorAll('a[href*=".JSON"i]:not([cloned])');
   let jsonLinks_length=jsonLinks.length;
   for(let i=0;i<jsonLinks_length;i++){try{

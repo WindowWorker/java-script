@@ -1,11 +1,12 @@
 import fetch from 'node-fetch';
+import './modules/duofetch.mjs';
 import http from 'http';
 import './link-resolver-import.mjs';
 import './ecmascript.mjs';
 import './ecmascript-xml.mjs';
 import './en.json.mjs';
 
-//process.on('uncaughtException',e=>console.log(e));
+process.on('uncaughtException',e=>console.log(e));
 
 const hostTarget = 'nodejs.org';
 
@@ -71,7 +72,7 @@ async function onRequest(req, res) {
     /* finish copying over the other parts of the request */
 
     /* fetch from your desired target */
-    let response = await fetch('https://' + hostTarget + path, options);
+    let response = await duofetch('https://' + hostTarget + path, options);
 
     /* if there is a problem try redirecting to the original */
     if (response.status > 399) {

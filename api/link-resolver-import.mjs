@@ -174,7 +174,9 @@ const promise1 = new Promise((resolve, reject) => {setTimeout(resolve,100);});
        let linksheets = document.querySelectorAll('link[rel="stylesheet"]:not([styled])');
        let linksheets_length = linksheets.length;
        for(let i=0;i<linksheets_length;i++){try{
-
+if(document.querySelector('style[url="'+linksheets[i].href+'"]')){
+continue;
+}
 
 let request = new XMLHttpRequest();
 request.open("GET", linksheets[i].href, false); 
@@ -184,6 +186,7 @@ if (request.status === 200) {
  let linksheet_text = request.responseText; 
  let ls = document.createElement('style');
  ls.innerHTML = linksheet_text;
+ ls.setAttribute('url',linksheets[i].href);
  document.body.appendChild(ls)
 }
 
@@ -197,6 +200,9 @@ if (request.status === 200) {
         let linksheets = document.querySelectorAll('link[rel="stylesheet"]:not([styled],[backup])');
         let linksheets_length = linksheets.length;
         for(let i=0;i<linksheets_length;i++){try{
+if(document.querySelector('style[url="'+linksheets[i].href+'"]')){
+continue;
+}
 
 
      let request = await fetch(linksheets[i].href);
@@ -205,6 +211,7 @@ if (request.status === 200) {
      let linksheet_text = await request.text(); 
      let ls = document.createElement('style');
      ls.innerHTML = linksheet_text;
+     ls.setAttribute('url',linksheets[i].href);
      document.body.appendChild(ls)
     
 

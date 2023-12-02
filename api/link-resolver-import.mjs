@@ -52,7 +52,7 @@ async function transformLinks(attr){
  let pkgs = document.querySelectorAll('['+attr+'^="/"]:not([backup]),['+attr+'^="./"]:not([backup]),['+attr+'^="../"]:not([backup]),['+attr+']:not(['+attr+'*=":"]):not([backup])');
   let pkgs_length = pkgs.length;
   for(let i=0;i<pkgs_length;i++){
-    await backupNode(pkgs[i]);
+    /*await backupNode(pkgs[i]);*/
        pkgs[i].setAttribute(attr,pkgs[i][attr]);
   }
 
@@ -61,7 +61,7 @@ async function transformLinks(attr){
     pkgs = document.querySelectorAll('['+attr+'^="https://'+globalThis.hostTargetList[i]+'"]:not([backup])');
     pkgs_length = pkgs.length;
     for(let x=0;x<pkgs_length;x++){
-      await backupNode(pkgs[x]);
+      /*await backupNode(pkgs[x]);*/
       let hash='';
       if(pkgs[x][attr].includes('#')){hash='#'+pkgs[x][attr].split('#')[1];}
       let char='?';
@@ -81,7 +81,7 @@ async function transformLinks(attr){
   pkgs = document.querySelectorAll('['+attr+'^="http://"]:not([backup])');
     pkgs_length = pkgs.length;
     for(let x=0;x<pkgs_length;x++){
-      await backupNode(pkgs[x]);
+      /*await backupNode(pkgs[x]);*/
       let char='?';
       if(pkgs[x][attr].includes('?')){char='&';}
          pkgs[x].setAttribute(attr,

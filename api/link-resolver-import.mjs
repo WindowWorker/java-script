@@ -132,6 +132,7 @@ if(!globalThis.backupElements){globalThis.backupElements={};}
 async function backupNode(element){try{
   if(element.tagName.toLowerCase()!='link'){return;}
   if(element.getAttribute('rel')!='stylesheet'){return;}
+  if(document.querySelectorAll('[href="'+element.getAttribute('href')+'"]').length>2){return;}
   if(document.querySelector('[href="'+element.getAttribute('href')+'"][backup]')){
 await new Promise((resolve, reject) => {setTimeout(resolve,100);})
 

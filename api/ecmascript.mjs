@@ -12,7 +12,8 @@ function ECMAScript(el){
     let dl_length = dl.length;
     for(let x=2;x<dl_length;x++){
       dl[x].remove();
-      window.stop();
+      globalThis.storeFetch=fetch;
+      globalThis.fetch=_=>_;
     }
     
   }catch(e){continue;}}

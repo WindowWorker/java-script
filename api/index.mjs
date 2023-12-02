@@ -121,6 +121,10 @@ if(req.url.includes('.jsml')){
       if(req.url.includes('.htm16')){
         res.setHeader('content-type','text/html;charset=UTF-16');
       }
+
+      if(req.url.includes('.text')){
+        res.setHeader('content-type','text/plain;charset=UTF-8');
+      }
       
       /* Copy over target response and return */
       let resBody = await response.text();

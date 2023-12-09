@@ -50,7 +50,7 @@ function ECMAScript(el){
   }
   if(!el){return;}
   var n, a=[], walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
-  while(n=walk.nextNode()){ 
+  while(n=walk.nextNode()){
   a.push(n);
     let ntext=n.textContent;
 

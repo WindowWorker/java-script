@@ -302,7 +302,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
         }
 
 
-        /* if (!request.url.startsWith(self.location.origin)) return; */
+         if (!((request.url.startsWith(self.location.origin)))){return;}
 
 
         /* Images */
@@ -335,7 +335,7 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
 
               res = await fetch(request);
 
-              if (res) {
+              if ((res)&&(res.status<300)) {
 
                 /* Save a copy of it in cache */
                 await cacheResponse(request, res);
@@ -343,14 +343,14 @@ if ((!globalThis?.ServiceWorkerGlobalScope) && (navigator?.serviceWorker)) {
                 return res;
               }
 
-              res = await cascadeMatchesTier2(request);
+              /*res = await cascadeMatchesTier2(request);*/
               respondWithResponse = res;
               return res;
 
 
             } catch (e) {
 
-              res = await cascadeMatchesTier2(request);
+              /*res = await cascadeMatchesTier2(request);*/
               respondWithResponse = res;
               return res;
 

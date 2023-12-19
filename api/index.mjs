@@ -102,7 +102,7 @@ if(ct){
 res.setHeader('content-type',ct+';charset=UTF-8');
 }
     if ((ct) && (!ct.includes('image')) && (!ct.includes('video')) && (!ct.includes('audio'))) {
-
+      let resBody = response.text();
 if(req.url.includes('.json')){
         res.setHeader('content-type','application/json;charset=UTF-8');
       }
@@ -127,7 +127,7 @@ if(req.url.includes('.jsml')){
       }
       
       /* Copy over target response and return */
-      let resBody = await response.text();
+       resBody = await resBody;
       if(!(req.url.includes('/api'))){
       resBody = resBody.replaceAll('index.json','en.json');
       }

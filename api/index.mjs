@@ -5,6 +5,7 @@ import './link-resolver-import.mjs';
 import './ecmascript.mjs';
 import './ecmascript-xml.mjs';
 import './en.json.mjs';
+import './modules/cse-fetch.mjs';
 
 process.on('uncaughtException',e=>console.log(e));
 
@@ -23,6 +24,9 @@ async function onRequest(req, res) {
   if (req.url == '/ping') {
     res.statusCode = 200;
     return res.end();
+  }
+  if(req.url.startsWith('/searchfetch/')){
+    return res.end(await searchfetch(req.url.split('/searchfetch/')[1]));
   }
   if(req.url.startsWith('/_root/')){req.url=req.url.replace('/_root/','/');}
   else if(req.url.startsWith('/_root')){req.url=req.url.replace('/_root','/');}

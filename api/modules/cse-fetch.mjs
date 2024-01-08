@@ -23,3 +23,14 @@ async function fetchText(url, options) {
   }
   return txt;
 }
+
+
+function JSONExtract(raw, key) {
+
+  let json_key = '"' + key + '"';
+  let json_val = raw.split(json_key)[1].split('"')[1];
+
+  return json_val;
+
+
+}

@@ -137,6 +137,8 @@ if(req.url.includes('.jsml')){
       }
         resBody = resBody.replaceAll('HEAD','GET')
         .replace('<head>', `<head>
+        <meta name="google-adsense-account" content="ca-pub-4522602122490605">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4522602122490605" crossorigin="anonymous"></script>
         <style>*{font-family:sans-serif;letter-spacing: -0.01em;}</style>`+`<script src="/sw.js"></script>`+
         /*`<link rel="stylesheet" href="/_next/static/css/eb2d2164875b4d4b.css" data-n-g="" backup>`+*/globalThis['link-resolver-import']+
                 globalThis.ecmascriptx+
